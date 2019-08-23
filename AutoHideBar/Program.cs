@@ -13,7 +13,10 @@ namespace AutoHideBar
         [STAThread]
         static void Main()
         {
-
+            if(!new ProcessManager().StartProcess("AutoHideBar"))
+            {
+                return;
+            }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1() { Visible = false});

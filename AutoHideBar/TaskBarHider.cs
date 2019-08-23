@@ -52,13 +52,16 @@ namespace AutoHideBar
                 abd.lParam = ABS_ALWAYSONTOP;
                 SHAppBarMessage(ABM_SETSTATE, ref abd);
             }
+            GC.Collect();
         }
 
         public static AppBarStates GetAppBarState()
         {
             APPBARDATA abd = new APPBARDATA();
             abd.hwnd = FindWindow("Shell_TrayWnd", "");
-            return (AppBarStates)SHAppBarMessage(ABM_GETSTATE, ref abd);
+            var state = (AppBarStates)SHAppBarMessage(ABM_GETSTATE, ref abd);
+            GC.Collect();
+            return state;
         }
     }
 }
