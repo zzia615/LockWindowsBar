@@ -25,7 +25,7 @@ namespace AutoHideBar
             Process process = null;
             foreach(var a in temp)
             {
-                if (a.ProcessName == processName && a.Id != currentProcess.Id)
+                if (a.ProcessName == currentProcess.ProcessName && a.Id != currentProcess.Id)
                 {
                     process = a;
                     break;
