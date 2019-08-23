@@ -20,21 +20,7 @@ namespace AutoHideBar
         private void timer1_Tick(object sender, EventArgs e)
         {
             //timer1.Enabled = false;
-            var barState = TaskBarHider.GetAppBarState();
-            if(barState== TaskBarHider.AppBarStates.AlwaysOnTop)
-            {
-                if (!ib_Hide)
-                {
-                    return;
-                }
-            }
-            else
-            {
-                if (ib_Hide)
-                {
-                    return;
-                }
-            }
+
             TaskBarHider.SetAppBarAutoDisplay(ib_Hide);
 
         }
